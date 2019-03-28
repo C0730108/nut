@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -16,9 +17,12 @@ namespace c0730108
             Console.ReadLine();
 
         }
-        static void Download()
+        static async void Download()
         {
-            Network.Download();
+            HttpClient client = new HttpClient();
+            var data = await client.GetStringAsync("http://ibm.com");
+            Console.WriteLine(data);
+            List myList = new List();
         }
        // {
             //task 1
@@ -35,7 +39,7 @@ namespace c0730108
     {
         static public Task Download()
         {
-            return Task.Run(() => Thread.Sleep(3000));
+            return Task.Run(() => Thread.Sleep(3000));   
         }
     }
 }
