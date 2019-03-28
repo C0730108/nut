@@ -18,10 +18,24 @@ namespace c0730108
         }
         static void Download()
         {
+            Network.Download();
+        }
+       // {
             //task 1
-            Thread.Sleep(7000);
-            Console.WriteLine("Download complete");
-        } 
+          //  Task.Run(() =>
+          // {
+             //  Thread.Sleep(7000);
+            //   Console.WriteLine("Download complete");
+          // }
+          //  );
+      //  } 
         
+    }
+    class Network
+    {
+        static public Task Download()
+        {
+            return Task.Run(() => Thread.Sleep(3000));
+        }
     }
 }
